@@ -31,6 +31,7 @@ test('test add to card check item count different item', async ({ page }) => {
 });
 
 test('add two items to check item cart', async ({ page }) => {
+  test.setTimeout(120000);
   await page.goto('https://www.chewy.com/');
   await page.getByTestId('desktop-header').getByTestId('search').click();
   await page.getByTestId('desktop-header').getByTestId('search').fill('royal canin veterinary diet for cats cans');
@@ -42,5 +43,5 @@ test('add two items to check item cart', async ({ page }) => {
   await page.getByTestId('desktop-header').getByTestId('search').press('Enter');
   await page.locator('.kib-product-image').first().click();
   await page.getByTestId('add-to-cart').click();
-  await expect(page.getByTestId('cart-total-item')).toHaveText('Subtotal (2 item):')
+  await expect(page.getByTestId('cart-total-item')).toHaveText('Subtotal (2 items):')
 });
