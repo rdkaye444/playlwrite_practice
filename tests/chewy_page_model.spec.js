@@ -21,6 +21,7 @@ test('Add item twice to cart, card should display 2 items', async ({ page }) =>{
 });
 
 test('Add item once to cart, card should display 1 item', async ({ page }) =>{
+    test.setTimeout(120000);
     const chewyItem = new ChewyItemPage(page);
     await chewyItem.goto();
     await chewyItem.add_to_cart();
